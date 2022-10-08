@@ -11,5 +11,18 @@ __PostgreSQL__: Popular and in-demand version of SQL. (Free & Open Source)
 |-------------|----------|
 | Tabs | Tables |
 
+## SQL Cheat Sheet
+![[Screen+Shot+2016-04-17+at+12.22.49+PM.png]]
+
+## SQL Statements
+### SELECT
+```SQL
+SELECT column_name FROM table_name;
+```
+
+
+
+
+
 
 
