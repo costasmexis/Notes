@@ -21,7 +21,7 @@ __PostgreSQL__: Popular and in-demand version of SQL. (Free & Open Source)
 |-------------|----------|
 | Tabs | Tables |
 
-## SQL Statements
+# SQL Statements
 ### SELECT
 ```SQL
 SELECT column_name FROM table_name;
@@ -158,6 +158,77 @@ Using the underscore allows us to replace just a single character
 	- Image we had version string codes in the format  _'Version#A4'_
 	- `WHERE value LIKE "Version#__"`
 - We can also combine pattern matching operators to create more complex patterns
+
+
+# GROUP BY Statements
+`GROUP BY` will allow us to aggregate data and apply functions to better understand how data is distributed per category.
+
+### Aggregate functions
+The main idea behind an aggregate function is to take multiple inputs and return a single output.
+
+Most Common Aggregate FunctionsQ
+- `AVG()` - returns average value
+- `COUNT()` - returns number of values
+- `MAX()` - returns maximum value
+- `MIN()` - returns minimum value
+- `SUM()` - returns the sum of all values
+
+Aggregate function calls happen only in the `SELECT` clause or the `HAVING` clause.
+
+You can use `ROUND()` to specify precision after the decimal.
+
+### GROUP BY
+* __The `GROUP BY` clause must appear right after a `FROM` or `WHERE` statement.__
+* __In the `SELECT` statement, columns must either have an aggregate function or be in the `GROUP BY` call.__
+* __`WHERE` statements should not refer to the aggregation result. Use `HAVING` to filter on those results.__
+
+|Category|Data Value|
+|----|----|
+|A|10|
+|A|5|
+|B|2|
+|B|4|
+|C|12|
+|C|6|
+
+```SQL
+SELECT category_col, AVG(data_col)
+FROM my_table
+GROUP BY category_col;
+
+# example
+
+SELECT company, division, SUM(sales)
+FROM finance_table
+WHERE division IN ('marketing', 'transport')
+GROUP BY company, division;
+```
+* __If you want to sort reults based on the aggregate, make sure to reference the entire function__
+```SQL
+SELECT company, SUM(sales)
+FROM finance_table
+GROUP BY company
+ORDER BY SUM(sales)
+LIMIT 5 DESC
+```
+
+### HAVING
+- The `HAVING` clause allows us to filter __after__ an aggregation has already taken place
+
+What if we want to filter based on SUM(sales) ? The SUM(sales) happens after the GROUP BY clause. 
+```SQL
+SELECT company, SUM(sales)
+FROM finance_table
+WHERE company != 'Google'
+GROUP BY company
+
+HAVING SUM(sales)>100
+```
+
+# JOINS
+`JOINS` allow us to combine information from multiple tables! 
+
+
 
 
 
