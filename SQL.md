@@ -78,6 +78,7 @@ ORDER BY columns1 ASC/DESC;
 
 You can also `ORDER BY` multiple columns. This makes sense when one column has duplicate entries.
 
+Let:
 |Company|Name|Sales|
 |--|--|--|
 |Apple|Andrew|100|
@@ -114,3 +115,53 @@ WHERE sales != 100
 ORDER BY company, sales DESC
 LIMIT 5;
 ```
+
+### BETWEEN
+- Can be used to match a value against a range of values:
+	- `value BETWEEN low AND high`
+- Is the same as:
+	- `value >= low AND value <= high`
+- Can  also use `NOT BETWEEN`
+- Can be used with dates
+
+### IN
+- In certain cases you want to check for multiple possible value options, for example, if a user's name shows up **IN** a list of known names
+- We can use the **IN** operator to create a condition that checks to see if a value is included in a list of multiple options
+```SQL
+# Example
+
+SELECT color FROM my_table
+WHERE color IN ('red', 'blue', 'green')
+
+SELECT color FROM my_table
+WHERE color NOT IN ('red', 'blue', 'green')
+```
+
+### LIKE and ILIKE
+`LIKE` is case-sensitive
+`ILKE` is case-insensitive
+
+What if we want to match against a general pattern in a string?
+- All emails ending in '@gmail.com'
+- All names that begin with an 'A'  (`... WHERE name LIKE 'A%'`)
+
+The `LIKE` operator allows us to perform pattern matching against string data with the use of **wildcard** characers:
+- Percent `%`
+	- Matches any sequence of characters
+- Underscore `_`
+	- Matches any single character
+
+Using the underscore allows us to replace just a single character
+- Get all Mission Impossible films
+	- `WHERE title LIKE "Mission Impossible _"`
+- You can use multiple underscores
+	- Image we had version string codes in the format  _'Version#A4'_
+	- `WHERE value LIKE "Version#__"`
+- We can also combine pattern matching operators to create more complex patterns
+
+
+
+
+
+
+
