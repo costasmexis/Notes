@@ -1,5 +1,4 @@
 # Relational Databases (RDMS)
-
 **Transactional or Online Transaction Processing (OLTP) System**
 * Designed to store high volume day-to-day operational data
 * Typically, relational, but can also be non-relational
@@ -40,7 +39,6 @@ SELECT COUNT * FROM table_name;
 
 SELECT COUNT(DISTINCT name) FROM table_name; 
 ```
-
 
 ### WHERE
 The **WHERE** statement allows us to specify condition on columns for the rows to be returned.
@@ -159,7 +157,6 @@ Using the underscore allows us to replace just a single character
 	- `WHERE value LIKE "Version#__"`
 - We can also combine pattern matching operators to create more complex patterns
 
-
 # GROUP BY Statements
 `GROUP BY` will allow us to aggregate data and apply functions to better understand how data is distributed per category.
 
@@ -221,8 +218,7 @@ SELECT company, SUM(sales)
 FROM finance_table
 WHERE company != 'Google'
 GROUP BY company
-
-HAVING SUM(sales)>100
+HAVING SUM(sales)>100   # CHECK THIS LINE
 ```
 
 # JOINS
