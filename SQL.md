@@ -223,8 +223,27 @@ HAVING SUM(sales)>100   # CHECK THIS LINE
 
 # JOINS
 `JOINS` allow us to combine information from multiple tables! 
+- INNER JOINS
+- OUTER JOINS
+- FULL JOINS
+- UNIONS
 
+### AS
+The `AS` clause allows us to create an "alias" for a column or result.
 
+```SQL
+SELECT columns AS new_name
+FROM my_table
+
+ex.
+SELECT SUM(amount) AS net_revenue
+FROM payment;
+```
+
+ The `AS` operator gets executed at the very end of a query, meaning that we can not use the ALIAS inside a `WHERE` operator or a `HAVING` clause.
+
+## INNER JOINS
+The simplest JOIN type. 
 
 
 

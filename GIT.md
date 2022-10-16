@@ -193,8 +193,40 @@ As you've learned, Git tracks _lines_ in files. A merge conflict will happen whe
 
 
 # Using Git Remotely
+Connect a remote repository to a local one.
 
+In Git,  __origin__ is a shorthand name for the remote repository that a project was originally cloned from. More precisely, it is used instead of that original repository's URL - and thereby makes referencing much easier. 
+In other words `origin` is an **alias** _on your system_ for a particular remote repository. It's not actually a property of that repository.
 
+Note that origin is by no means a "magical" name, but just a standard convention. Although it makes sense to leave this convention untouched, you could perfectly rename it without losing any functionality.
+
+In the following example, the URL parameter to the "clone" command becomes the "origin" for the cloned local repository:
+
+```
+git clone https://github.com/gittower/git-crash-course.git
+```
+
+After `git init` we add an _origin_ to the GitHub repository and allows us to connect from the local repo to the remote repo. Run `$ git remote add origin <HTML>`
+
+By doing
+
+```
+git push origin branchname
+```
+
+you're saying to push to the `origin` repository. There's no requirement to name the remote repository `origin`: in fact the same repository could have a different alias for another developer.
+
+Remotes are simply an **alias** that store the URL of repositories. You can see what URL belongs to each remote by using
+
+```
+git remote -v
+```
+
+In the `push` command, you can use _remotes_ or you can simply use a _URL_ directly. An example that uses the URL:
+
+```
+git push git@github.com:git/git.git master
+```
 
 
 # Git Cheat-Sheet Commands
