@@ -245,9 +245,31 @@ FROM payment;
 ## INNER JOINS
 The simplest JOIN type. 
 
+- An INNER JOIN will result with the set of records that __match in both__ tables. 
+- Again, an INNER JOIN is looking for matches that exist within both tables.
+- INNER JOIN is symmetrical
+```SQL
+SELECT * FROM TableA
+INNER JOIN TableB
+ON TableA.col_match = TableB.col_match
+```
+```SQL
+# Example:
+
+SELECT * FROM Registrations
+INNER JOIN Logins
+  ON Registrations.name = Logins.name
+
+# Define which columns to print. Specify from which table if the #columns exists in both columns
+
+SELECT payment_id, payment.customer_id, first_name
+FROM payment
+INNER JOIN customer
+ON payment.customer_id = customer.customer_id
+```
 
 
-
-
-
-
+## OUTTER JOINS
+- There are few different types of OUTER JOINs
+- They will allow us to specify how to deal with values only present in one of the tables being joined
+- These are the more complex JOINs

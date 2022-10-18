@@ -190,8 +190,6 @@ If a merge conflict does occur, Git will try to combine as much as it can, but t
 As you've learned, Git tracks _lines_ in files. A merge conflict will happen when _the exact same line(s)_ are changed in separate branches. For example, if you're on a `alternate-sidebar-style` branch and change the sidebar's heading to "About Me" but then on a different branch and change the sidebar's heading to "Information About Me", which heading should Git choose? You've changed the heading on both branches, so there's no way Git will know which one you actually want to keep. And it sure isn't going to just randomly pick for you!
 
 
-
-
 # Using Git Remotely
 Connect a remote repository to a local one.
 
@@ -227,6 +225,16 @@ In the `push` command, you can use _remotes_ or you can simply use a _URL_ direc
 ```
 git push git@github.com:git/git.git master
 ```
+
+
+## Push and Pull System
+Example:
+`$ git remote -v`
+>origin https://github.com/somepath/repo.git (fetch)
+>origin https://github.com/somepath/repo.git (push)
+
+The first one (fetch) is the repo for pulling.
+The second one (push) is the repo for pushing.
 
 
 # Git Cheat-Sheet Commands
